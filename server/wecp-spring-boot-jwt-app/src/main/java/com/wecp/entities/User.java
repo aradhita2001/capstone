@@ -42,7 +42,7 @@ public class User {
 	 * @todo Assign a 1 to many relationship with u_id mapping join column
 	 */
 	@JsonIgnore
-	Set<UserTransaction> transactions;
+	// Set<UserTransaction> transactions;
 
 	public Long getId() {
 		return id;
