@@ -14,15 +14,20 @@ export class TransactionService {
 
   performTransaction(transaction: Transaction): Observable<Transaction> {
     // @todo : should make an API call to /transaction and perform the transaction
+    return this.http.post<Transaction>(`${this.baseUrl}/transactions`, transaction);
   }
 
 
-  getOutstandingBalance(userId: string): Observable<number> {
-    //@todo: Call the endpoint /out-standing?userId=${userId} to get the outstanding balance for a user with given userId
-  }
+  // getOutstandingBalance(userId: string): Observable<number> {
+  //   //@todo: Call the endpoint /out-standing?userId=${userId} to get the outstanding balance for a user with given userId
+  // }
 
-  getAllTranactions(userId: string): Observable<Transaction[]> {
+  getTranactionsByUser(userId: string): Observable<Transaction[]> {
    //@todo: Call the endpoint /all-transactions?userId=${userId} to get list of all transaction performed by user with given userId
+    return this.http.get<Transaction[]>(`${this.baseUrl}/transactions/user/${userId}`);
+  }
 
+  getAllTransactions(): Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(`${this.baseUrl}/transactions`);
   }
 }

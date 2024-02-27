@@ -12,19 +12,20 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(user: User): Observable<{ [key: string]: string }> {
-    // @todo : Api call to /authenticate
-  }
+  // login(user: User): Observable<{ [key: string]: string }> {
+
+  // }
 
   getToken() {
     return localStorage.getItem("token");
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.loginUrl}/fetchusers`);
-  }
+  // getUsers(): Observable<User[]> {
+  //   return this.http.get<User[]>(`${this.loginUrl}/fetchusers`);
+  // }
 
   createUser(user: User): Observable<User> {
     // @todo : should create a user in the system at the endpoint "/user"
+    return this.http.post<User>(`${this.loginUrl}/sign-up`, user);
   }
 }
