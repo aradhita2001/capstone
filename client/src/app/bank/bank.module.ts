@@ -7,9 +7,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthModule } from "../auth/auth.module";
 import { LogoutComponent } from "../auth/components/logout/logout.component";
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 
 @NgModule({
-  declarations: [TransactionComponent],
+  declarations: [TransactionComponent, UserDashboardComponent],
   imports: [
     CommonModule,
     BankRoutingModule,

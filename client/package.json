@@ -9,7 +9,7 @@
     "test2": "protractor protractor.conf.js",
     "test": "ng test",
     "backend": "",
-    "generarte" : "ng g c src/app/bank/admin-dashboard"
+    "generate" : "ng g c bank/components/user-dashboard"
   },
   "private": true,
   "dependencies": {
