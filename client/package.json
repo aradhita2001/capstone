@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test2": "protractor protractor.conf.js",
     "test": "ng test",
-    "backend": ""
+    "backend": "",
+    "generarte" : "ng g c src/app/bank/admin-dashboard"
   },
   "private": true,
   "dependencies": {
