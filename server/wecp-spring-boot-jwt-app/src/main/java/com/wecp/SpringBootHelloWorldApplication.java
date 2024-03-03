@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.wecp.entities.User;
 import com.wecp.repos.UserRepository;
+import com.wecp.service.UserService;
 
 @SpringBootApplication
 public class SpringBootHelloWorldApplication implements CommandLineRunner{
@@ -14,30 +15,23 @@ public class SpringBootHelloWorldApplication implements CommandLineRunner{
 	@Autowired
 	UserRepository userRepository;
 
+	@Autowired
+	UserService userService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootHelloWorldApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+
 		User admin = new User();
-		admin.setUserId("admin.user");
+		admin.setName("admin");
+		admin.setEmail("admin@admin.com");
+		admin.setPhone("9876543210");
 		admin.setPassword("12345");
 		admin.setRole("ADMIN");
-			if(userRepository.findByUserId(admin.getUserId())  == null){
-				userRepository.save(admin);
-			}
-		
-		
-		User customer = new User();
-		customer.setUserId("John");
-		customer.setPassword("12345");
-		customer.setRole("CLIENT");
-		if(userRepository.findByUserId(customer.getUserId())  == null){
-			userRepository.save(customer);
-		}
-		
-		
+
+		userService.addUser(admin);
 	}
 }
